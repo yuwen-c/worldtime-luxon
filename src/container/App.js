@@ -81,7 +81,7 @@ class App extends React.Component{
 
 // get the state of TzStr and fetch
   fetchTimezone = () =>{
-    fetch("http://worldtimeapi.org/api/timezone/"+ this.state.TzStr)
+    fetch("https://worldtimeapi.org/api/timezone/"+ this.state.TzStr)
     .then(response => response.json())
     .then(result => this.setState({Timezone: result}))
   }
