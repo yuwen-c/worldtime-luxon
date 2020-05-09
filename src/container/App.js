@@ -4,7 +4,6 @@ import Timezone from '../component/Timezone';
 import {splitedArr} from '../component/Alltimezone';
 import ErrorBoundary from '../component/ErrorBoundary';
 
-
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -17,10 +16,12 @@ class App extends React.Component{
   }
 
 // listen to the input change, setState of Searchbox and change to lower case 
-  inputFunc = (event) => {
+  changeFunc = (event) => {    
+//inputFunc = (event) => {  //use onChange to detect any changes
     this.setState({Searchbox: event.target.value.toLowerCase()})
     // call compare function
-    const filteredSplitedCity = this.compareCity(splitedArr)
+    // send event.target.value as the second parameter, cause this.state.searchBox has a delay
+    const filteredSplitedCity = this.compareCity(splitedArr, event.target.value.toLowerCase());
     // if only get one city after filter, fetch directly without press enter
     if(filteredSplitedCity.length === 1){
       // call getTimezoneStr function
@@ -34,7 +35,7 @@ class App extends React.Component{
   keydownFunc = (event) => {
     if(event.keyCode === 13){
       // call compare function, filter input cityname with timezone
-      const filteredSplitedCity = this.compareCity(splitedArr)
+      const filteredSplitedCity = this.compareCity(splitedArr, this.state.Searchbox)
       // if input is valid, send the fetch string with the first element of filteredCity
       if(filteredSplitedCity.length!==0){
       // call getTimezoneStr function
@@ -55,13 +56,13 @@ class App extends React.Component{
   }
 
 // compare input value with [["Africa", "Abidjan"], ["Africa", "Accra"], ...]
-  compareCity = (city) => {
-    for(let i in this.state.Searchbox){
+  compareCity = (city, inputValue) => {
+    for(let i in inputValue){
     // if length of input value > city name => error. => use try catch
       try{
         city = city.filter(item => {
           // only compare with the last city name, don't compare with "Africa"
-          return item[item.length-1][i].toLowerCase() === this.state.Searchbox[i]
+          return item[item.length-1][i].toLowerCase() === inputValue[i]
         })
       }
       catch(error){
@@ -96,7 +97,7 @@ class App extends React.Component{
     // when input nothing, do not show options
     if(this.state.Searchbox.length!==0){
       // call compare function
-      capitalCompleteCity = this.compareCity(splitedArr)
+      capitalCompleteCity = this.compareCity(splitedArr, this.state.Searchbox)
     }
 
 // =========== Main Page: ============
@@ -120,8 +121,7 @@ class App extends React.Component{
             <Searchbox 
             // send the comparison result - completeCity through PcompleteCity
             PcompleteCity={capitalCompleteCity} 
-            PinputFunc={this.inputFunc}
-            // PinputFunc={setInterval(this.inputFunc,1000)} 
+            PchangeFun={this.changeFunc}
             PkeydownFunc={this.keydownFunc}
             // invalid input => show error message
             PerrorMes={errorMes}

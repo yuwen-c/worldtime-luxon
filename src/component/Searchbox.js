@@ -3,12 +3,12 @@ import Option from './Option';
 
 
 
-const Searchbox = ({PinputFunc,PkeydownFunc, PcompleteCity, PerrorMes}) => {
+const Searchbox = ({PchangeFun, PkeydownFunc, PcompleteCity, PerrorMes}) => {
     return (
         <div className="measure pa4 black-80 ">
             <label  className="f4 b db">What time is it in</label><br/>
             <input 
-            onInput={PinputFunc}
+            onChange={PchangeFun}
             onKeyDown={PkeydownFunc}
             id="city" 
             list="cityDatalist" 
