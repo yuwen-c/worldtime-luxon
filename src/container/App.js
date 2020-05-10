@@ -25,12 +25,12 @@ class App extends React.Component{
     // if only get one city after filter, fetch directly without press enter
     if(filteredSplitedCity.length === 1){
       // call getTimezoneStr function
-      this.getTimezoneStr(filteredSplitedCity)
-      this.fetchTimezone();
+      this.getTimezoneStr(filteredSplitedCity);
+      this.fetchTimezone();      
     }
   }
 
-  
+
 //when press "enter", set State of searchbox, find the city, send fetch
   keydownFunc = (event) => {
     if(event.keyCode === 13){
@@ -39,8 +39,10 @@ class App extends React.Component{
       // if input is valid, send the fetch string with the first element of filteredCity
       if(filteredSplitedCity.length!==0){
       // call getTimezoneStr function
-        this.getTimezoneStr(filteredSplitedCity)
-        this.fetchTimezone()
+        this.getTimezoneStr(filteredSplitedCity);
+        this.fetchTimezone();
+        // clean the input box
+        event.target.value = '';
       }
     }
   }
@@ -66,7 +68,7 @@ class App extends React.Component{
         })
       }
       catch(error){
-        console.log("error", error)
+        console.log("error", error);
       }
     }
     return city;
