@@ -1,5 +1,5 @@
 {
-  "homepage": "https://myusername.github.io/worldtime",
+  "homepage": "https://myusername.github.io/worldtime-luxon",
   "name": "worldtime",
   "version": "0.1.0",
   "private": true,
@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "gh-pages": "^2.2.0",
+    "luxon": "^1.25.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-scripts": "3.4.1",

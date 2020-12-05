@@ -1,8 +1,10 @@
 import React from 'react';
 import Searchbox from '../component/Searchbox';
-import Timezone from '../component/Timezone';
+// import Timezone from '../component/Timezone';
 import {splitedArr} from '../component/Alltimezone';
 import ErrorBoundary from '../component/ErrorBoundary';
+import { DateTime } from "luxon";
+import TimezoneLuxon from '../component/TimezoneLuxon';
 
 class App extends React.Component{
   constructor(props){
@@ -12,6 +14,7 @@ class App extends React.Component{
       Timezone:[],
       // TzStr : user local timezone
       TzStr : Intl.DateTimeFormat().resolvedOptions().timeZone,
+      now: DateTime.local()
     }
   }
 
@@ -49,12 +52,14 @@ class App extends React.Component{
 
 // when page loading, do fetch function every second 
   componentDidMount(){
-    this.timerID = setInterval(this.fetchTimezone, 1000);
+    this.dateID = setInterval(()=> {this.setState({now: DateTime.local()})}, 1000)
+    // this.timerID = setInterval(this.fetchTimezone, 1000);
   }
 
 // clear interval
   componentWillUnmount(){
-    clearInterval(this.timerID);
+    clearInterval(this.dateID);
+    // clearInterval(this.timerID);
   }
 
 // compare input value with [["Africa", "Abidjan"], ["Africa", "Accra"], ...]
@@ -104,10 +109,10 @@ class App extends React.Component{
 
 // =========== Main Page: ============
 // if has not get any timezone data, show "loading"
-    if(this.state.Timezone.length === 0){
-      return(<h2 className='tc pa6'>loading...</h2>)
-    }
-    else{
+    // if(this.state.Timezone.length === 0){
+    //   return(<h2 className='tc pa6'>loading...</h2>)
+    // }
+    // else{
     // if input is invalid, show error message in <p> of searchbox.
     // condition: w/o compare anything && input is not empty
       let errorMes;
@@ -130,13 +135,16 @@ class App extends React.Component{
             />
           </ErrorBoundary>
           <ErrorBoundary>
-            <Timezone Ptimezone={this.state.Timezone}/>
+            {/* <Timezone Ptimezone={this.state.Timezone}/> */}
+            <TimezoneLuxon
+              now={this.state.now}
+            />
           </ErrorBoundary>
         </div>
       )
     }
   }
-}
+// }
 
 
 export default App;
