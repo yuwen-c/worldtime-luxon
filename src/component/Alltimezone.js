@@ -3,13 +3,13 @@ const Alltimezone = ["Africa/Abidjan","Africa/Accra","Africa/Algiers","Africa/Bi
 
 
 // get ride of timezones such as: "CET", "MET", "WET"...
-const slashAlltimezone = Alltimezone.filter(item => {
+const slashTimezone = Alltimezone.filter(item => {
     return item.includes("/")
 })
 
-// two dimension array:
+// turn to two dimensions array: "Africa/Abidjan" => "Africa", "Abidjan"
 //  [["Africa", "Abidjan"], ["Africa", "Accra"], ...]
-export const splitedArr = slashAlltimezone.map(item => {
+export const splitedTimezone = slashTimezone.map(item => {
     return item.split("/")
 })
 
