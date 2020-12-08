@@ -20,7 +20,7 @@ class App extends React.Component{
   }
 
 // listen to the input change, setState of Searchbox and change to lower case 
-  changeFunc = (event) => {   
+  onInputChange = (event) => {   
     // console.log("event", event.target.value) 
 //inputFunc = (event) => {  //use onChange to detect any changes
     // const filteredCity = this.compareCity(splitedTimezone, event.target.value.toLowerCase());
@@ -47,21 +47,6 @@ class App extends React.Component{
     }
   }
 
-//when press "enter", set State of searchbox, find the city, send fetch
-  // keydownFunc = (event) => {
-  //   if(event.keyCode === 13){
-  //     // call compare function, filter input cityname with timezone
-  //     const filteredCity = this.compareCity(splitedTimezone, this.state.Searchbox)
-  //     // if input is valid, send the fetch string with the first element of filteredCity
-  //     if(filteredCity.length!==0){
-  //     // call getTimezoneStr function
-  //       this.getTimezoneStr(filteredCity);
-  //       this.fetchTimezone();
-  //       // clean the input box
-  //       event.target.value = '';
-  //     }
-  //   }
-  // }
 
 // when page loading, do fetch function every second 
   componentDidMount(){
@@ -85,7 +70,6 @@ class App extends React.Component{
           return item[item.length-1][i].toLowerCase() === inputValue[i]
         })
         this.setState({completeCity: tzArr});
-        console.log("compare", tzArr)
       }
       catch(error){
         console.log("error", error);
@@ -130,8 +114,7 @@ class App extends React.Component{
           <ErrorBoundary>
             <Searchbox 
             completeCity={this.state.completeCity} 
-            changeFun={this.changeFunc}
-            keydownFunc={this.keydownFunc}
+            onInputChange={this.onInputChange}
             errorMes={errorMes}
             />
             <input

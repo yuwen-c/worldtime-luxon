@@ -3,13 +3,12 @@ import Option from './Option';
 
 
 
-const Searchbox = ({changeFun, keydownFunc, completeCity, errorMes}) => {
+const Searchbox = ({onInputChange, completeCity, errorMes}) => {
     return (
         <div className="measure pa4 black-80 ">
             <label  className="f4 b db">What time is it in</label><br/>
             <input 
-            onChange={changeFun}
-            onKeyDown={keydownFunc}
+            onChange={onInputChange}
             id="city" 
             list="cityDatalist" 
             className="input-reset ba b--black-30 pa2 db w-60" 
