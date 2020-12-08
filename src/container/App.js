@@ -20,29 +20,32 @@ class App extends React.Component{
   }
 
 // listen to the input change, setState of Searchbox and change to lower case 
-  changeFunc = (event) => {    
-    console.log("changeFunc")
+  changeFunc = (event) => {   
+    // console.log("event", event.target.value) 
 //inputFunc = (event) => {  //use onChange to detect any changes
-    const filteredCity = this.compareCity(splitedTimezone, event.target.value.toLowerCase());
+    // const filteredCity = this.compareCity(splitedTimezone, event.target.value.toLowerCase());
+    // console.log("filter", filteredCity)
+    this.compareCity(splitedTimezone, event.target.value.toLowerCase())
     this.setState({
       Searchbox: event.target.value.toLowerCase(),
-      completeCity: filteredCity
+      // completeCity: filteredCity
     }) 
+    console.log("change")
   }
 
-  // onClick = () => {
-  //   console.log("click",this.state.Searchbox)
-  //   // call compare function
-  //   // send event.target.value as the second parameter, cause this.state.searchBox has a delay
-  //   // const filteredCity = this.compareCity(splitedTimezone,event.target.value.toLowerCase());
-  //   const filteredCity = this.compareCity(splitedTimezone,this.state.Searchbox)
-  //   // if only get one city after filter, fetch directly without press enter
-  //   if(filteredCity.length === 1){
-  //     // call getTimezoneStr function
-  //     this.getTimezoneStr(filteredCity);
-  //     this.fetchTimezone();  
-  //   }
-  // }
+  onButtonClick = () => {
+    console.log("click")
+    // send event.target.value as the second parameter, cause this.state.searchBox has a delay
+    // const filteredCity = this.compareCity(splitedTimezone,event.target.value.toLowerCase());
+    const filteredCity = this.compareCity(splitedTimezone,this.state.Searchbox)
+    console.log("filter", filteredCity)
+    // if only get one city after filter, fetch directly without press enter
+    if(filteredCity.length === 1){
+      // call getTimezoneStr function
+      this.getTimezoneStr(filteredCity);
+      this.fetchTimezone();  
+    }
+  }
 
 //when press "enter", set State of searchbox, find the city, send fetch
   // keydownFunc = (event) => {
@@ -69,12 +72,11 @@ class App extends React.Component{
 // clear interval
   componentWillUnmount(){
     clearInterval(this.dateID);
-    clearInterval(this.timerID);
+    // clearInterval(this.timerID);
   }
 
 // compare input value with [["Africa", "Abidjan"], ["Africa", "Accra"], ...]
   compareCity = (tzArr, inputValue) => {
-    console.log("compare")
     for(let i in inputValue){
     // if length of input value > city name => error. => use try catch
       try{
@@ -82,6 +84,8 @@ class App extends React.Component{
           // only compare with the last city name, don't compare with "Africa"
           return item[item.length-1][i].toLowerCase() === inputValue[i]
         })
+        this.setState({completeCity: tzArr});
+        console.log("compare", tzArr)
       }
       catch(error){
         console.log("error", error);
@@ -107,19 +111,6 @@ class App extends React.Component{
 
 
   render(){
-// =========== Autocomplete part: ============
-// compare the searchbox value and Alltimezone(splitedTimezone), get completeCity, then show the result in Option
-    // lst time(1st letter): compare with all city list (splitedTimezone)
-    // 2nd time(2nd letter): compare with the result of 1st filter.
-    let completeCity = [];
-    // when input nothing, do not show options
-    if(this.state.Searchbox.length!==0){
-      console.log("if not 0")
-      // call compare function
-      completeCity = this.compareCity(splitedTimezone,this.state.Searchbox)
-    }
-
-// =========== Main Page: ============
 // if has not get any timezone data, show "loading"
     // if(this.state.Timezone.length === 0){
     //   return(<h2 className='tc pa6'>loading...</h2>)
@@ -128,7 +119,7 @@ class App extends React.Component{
   // if input is invalid, show error message in <p> of searchbox.
   // condition: w/o compare anything && input is not empty
       let errorMes;
-      if(completeCity.length === 0 && this.state.Searchbox.length !==0){
+      if(this.state.completeCity.length === 0 && this.state.Searchbox.length !==0){
         errorMes = 'invalid timezone'
       }
       else{
@@ -138,14 +129,14 @@ class App extends React.Component{
         <div> 
           <ErrorBoundary>
             <Searchbox 
-            completeCity={completeCity} 
+            completeCity={this.state.completeCity} 
             changeFun={this.changeFunc}
             keydownFunc={this.keydownFunc}
             errorMes={errorMes}
             />
             <input
             type="submit"
-            onClick={this.onClick}
+            onClick={this.onButtonClick}
             ></input>
           </ErrorBoundary>
           <ErrorBoundary>

@@ -22,12 +22,16 @@ const Searchbox = ({changeFun, keydownFunc, completeCity, errorMes}) => {
             className="f5 black-60 db mb2">{errorMes}</small>
             <datalist id='cityDatalist' >
             {
+                completeCity.length !== 0?
                 // map the comparison results so every city can show in the autocomplete component 
                 completeCity.map((item, index) => {
                     return <Option 
                     key={item}
                     value={item[item.length-1]}/>
                 })
+
+                : 
+                null
 
             }
             </datalist>
