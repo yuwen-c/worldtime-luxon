@@ -3,7 +3,7 @@ import Option from './Option';
 
 
 
-const Searchbox = ({onInputChange, completeCity, errorMes}) => {
+const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue}) => {
     return (
         <div className="measure pa4 black-80 ">
             <label  className="f4 b db">What time is it in</label><br/>
@@ -15,6 +15,7 @@ const Searchbox = ({onInputChange, completeCity, errorMes}) => {
             type="text" 
             aria-describedby="name-desc" 
             placeholder="enter city name"
+            value={searchboxValue}
             ></input>
             <br/>
             <small id="name-desc" 
