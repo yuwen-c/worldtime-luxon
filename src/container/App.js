@@ -4,7 +4,7 @@ import Searchbox from '../component/Searchbox';
 import {splitedTimezone} from '../component/Alltimezone';
 import ErrorBoundary from '../component/ErrorBoundary';
 import { DateTime } from "luxon";
-import TimezoneNow from '../component/TimezoneNow';
+// import TimezoneNow from '../component/TimezoneNow';
 import TimezoneList from '../component/TimezoneList';
 
 class App extends React.Component{
@@ -12,24 +12,23 @@ class App extends React.Component{
     super();
     this.state = {
       searchbox: '',
-      timezoneData: [], // data from fetch worldtime API
-      tzStr : Intl.DateTimeFormat().resolvedOptions().timeZone, 
-      // default 是local tz, 之後要設為搜尋的
-      now: DateTime.local(),
       completeCity: [], // auto complete options
-      timezoneStrList: ["America/New_York", "Europe/Madrid"] // [ 'new_york', 'madrid']
+      // timezoneData: [], // data from fetch worldtime API
+      // localTzStr : Intl.DateTimeFormat().resolvedOptions().timeZone,  // get local time
+      now: DateTime.local(),
+      timezoneStrList: [] // ["America/New_York", "Europe/Madrid"]
     }
   }
 
   // when page loading, do fetch function every second 
   componentDidMount(){
-    // this.dateID = setInterval(()=> {this.setState({now: DateTime.local()})}, 1000)
+    this.dateID = setInterval(()=> {this.setState({now: DateTime.local()})}, 1000)
     // this.timerID = setInterval(this.fetchTimezone, 1000);
   }
 
   // clear interval
   componentWillUnmount(){
-    // clearInterval(this.dateID);
+    clearInterval(this.dateID);
     // clearInterval(this.timerID);
   }
 
@@ -42,21 +41,18 @@ class App extends React.Component{
     }) 
   }
 
+// use compare result (completeCity) to refresh our timezoneStrList
   onButtonClick = () => {
     const { completeCity } = this.state;
-    // const filteredCity = this.compareCity(splitedTimezone,event.target.value.toLowerCase());
     if(completeCity){ // [["Africa", "Tripoli"], ["Antarctica", "Troll"]]
-      // call getTimezoneStr function
-      this.getTimezoneStr(completeCity[0]); // 只用第一個去抓字串
-      // 不fetch, 而是用luxon
-      //this.fetchTimezone(this.state.tzStr);  
+      this.getTimezoneStr(completeCity[0]); // only add the first compare result
     }
     else{
       console.log("there is no matched city")
     }
   }
 
-// compare input value with [["Africa", "Abidjan"], ["Africa", "Accra"], ...]
+// compare input value with [["Africa", "Abidjan"], ...], and refresh our auto complete options
   compareCity = (tzArr, inputValue) => {
     for(let i in inputValue){
     // if length of input value > city name => error. => use try catch
@@ -71,26 +67,18 @@ class App extends React.Component{
         console.log("error", error);
       }
     }
-    return tzArr; // [["Africa", "Tripoli"], ["Antarctica", "Troll"]]
   }
 
-//  convert ["Africa", "Abidjan"] to "Africa/Abidjan"
-  getTimezoneStr = (timezoneArr) => {
-    let fetchStr = '';
-    timezoneArr.forEach(item => fetchStr = fetchStr + item + "/");
-    this.setState({tzStr: fetchStr.slice(0, -1)}); // Africa/Tripoli/ 要去掉"/"
-    console.log("fetch", fetchStr)
-    return fetchStr.slice(0, -1);
+//  convert compare result: ["Africa", "Abidjan"] to "Africa/Abidjan" and setState timezoneStrList
+  getTimezoneStr = (tz) => {
+    let tzStr = '';
+    tz.forEach(item => tzStr = tzStr + item + "/");
+    this.setState(prevState => {
+      let newList = prevState.timezoneStrList.slice();
+      newList.push(tzStr.slice(0, -1)); // Africa/Tripoli/ 要去掉"/"
+      return {timezoneStrList: newList}
+    })
   }  
-
-  // now do not use world time API
-// get the state of tzStr and fetch
-  fetchTimezone = (str) =>{
-    // fetch("https://worldtimeapi.org/api/timezone/"+ this.state.tzStr)
-    fetch(`https://worldtimeapi.org/api/timezone/${str}`)
-    .then(response => response.json())
-    .then(result => this.setState({timezoneData: result}))
-  }
 
 
   render(){
@@ -122,14 +110,11 @@ class App extends React.Component{
             ></input>
           </ErrorBoundary>
           <ErrorBoundary>
-            {/* <Timezone timezone={this.state.timezoneData}/> */}
-            {/* <TimezoneNow
-              now={this.state.now}
-            /> */}
             <TimezoneList
               now={this.state.now}
               timezoneStrList={this.state.timezoneStrList}
             />
+            {this.state.timezoneStrList}
           </ErrorBoundary>
         </div>
       )

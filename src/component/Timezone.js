@@ -3,7 +3,6 @@ import { DateTime } from 'luxon'
 
 const Timezone = ({tz}) => {
     const tzData = DateTime.local().setZone(tz);
-    // const newyork = DateTime.local().setZone("America/New_York");
     return (
         <div>
             <h1 className="f4 bold center mw5 tc">{tzData.zoneName}</h1>
