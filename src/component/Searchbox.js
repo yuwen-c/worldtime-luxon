@@ -1,12 +1,12 @@
 import React from 'react';
 import Option from './Option';
+import Button from '../component/Button';
 
-
-
-const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue}) => {
+const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onButtonClick}) => {
     return (
         <div className="measure pa4 black-80 ">
             <label  className="f4 b db">What time is it in</label><br/>
+            <div className="flex">
             <input 
             onChange={onInputChange}
             id="city" 
@@ -17,6 +17,10 @@ const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue}) => {
             placeholder="enter city name"
             value={searchboxValue}
             ></input>
+            <Button
+            onButtonClick={onButtonClick}
+            />
+            </div>
             <br/>
             <small id="name-desc" 
             className="f5 black-60 db mb2">{errorMes}</small>

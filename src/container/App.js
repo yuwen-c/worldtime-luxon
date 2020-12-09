@@ -1,10 +1,8 @@
 import React from 'react';
 import Searchbox from '../component/Searchbox';
-// import Timezone from '../component/Timezone';
 import {splitedTimezone} from '../component/Alltimezone';
 import ErrorBoundary from '../component/ErrorBoundary';
 import { DateTime } from "luxon";
-// import TimezoneNow from '../component/TimezoneNow';
 import TimezoneList from '../component/TimezoneList';
 
 class App extends React.Component{
@@ -105,18 +103,18 @@ class App extends React.Component{
             onInputChange={this.onInputChange}
             errorMes={errorMes}
             searchboxValue={this.state.searchbox}
+            onButtonClick={this.onButtonClick}
             />
-            <input
+            {/* <input
             type="submit"
             onClick={this.onButtonClick}
-            ></input>
+            ></input> */}
           </ErrorBoundary>
           <ErrorBoundary>
             <TimezoneList
               now={this.state.now}
               timezoneStrList={this.state.timezoneStrList}
             />
-            {this.state.timezoneStrList}
           </ErrorBoundary>
         </div>
       )
