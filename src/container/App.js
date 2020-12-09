@@ -17,7 +17,7 @@ class App extends React.Component{
       // default 是local tz, 之後要設為搜尋的
       now: DateTime.local(),
       completeCity: [], // auto complete options
-      timezoneStrList: [] // [ 'new_york', 'madrid']
+      timezoneStrList: ["America/New_York", "Europe/Madrid"] // [ 'new_york', 'madrid']
     }
   }
 
@@ -79,6 +79,7 @@ class App extends React.Component{
     let fetchStr = '';
     timezoneArr.forEach(item => fetchStr = fetchStr + item + "/");
     this.setState({tzStr: fetchStr.slice(0, -1)}); // Africa/Tripoli/ 要去掉"/"
+    console.log("fetch", fetchStr)
     return fetchStr.slice(0, -1);
   }  
 
@@ -127,6 +128,7 @@ class App extends React.Component{
             /> */}
             <TimezoneList
               now={this.state.now}
+              timezoneStrList={this.state.timezoneStrList}
             />
           </ErrorBoundary>
         </div>
