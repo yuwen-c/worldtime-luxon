@@ -4,18 +4,20 @@ import Searchbox from '../component/Searchbox';
 import {splitedTimezone} from '../component/Alltimezone';
 import ErrorBoundary from '../component/ErrorBoundary';
 import { DateTime } from "luxon";
-import TimezoneLuxon from '../component/TimezoneLuxon';
+import TimezoneNow from '../component/TimezoneNow';
+import TimezoneList from '../component/TimezoneList';
 
 class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      searchbox:'',
-      timezoneData:[], // data from fetch worldtime API
+      searchbox: '',
+      timezoneData: [], // data from fetch worldtime API
       tzStr : Intl.DateTimeFormat().resolvedOptions().timeZone, 
       // default 是local tz, 之後要設為搜尋的
       now: DateTime.local(),
-      completeCity:[] // auto complete options
+      completeCity: [], // auto complete options
+      timezoneStrList: [] // [ 'new_york', 'madrid']
     }
   }
 
@@ -27,7 +29,7 @@ class App extends React.Component{
 
   // clear interval
   componentWillUnmount(){
-    clearInterval(this.dateID);
+    // clearInterval(this.dateID);
     // clearInterval(this.timerID);
   }
 
@@ -117,11 +119,13 @@ class App extends React.Component{
             type="submit"
             onClick={this.onButtonClick}
             ></input>
-            {this.state.tzStr}
           </ErrorBoundary>
           <ErrorBoundary>
             {/* <Timezone timezone={this.state.timezoneData}/> */}
-            <TimezoneLuxon
+            {/* <TimezoneNow
+              now={this.state.now}
+            /> */}
+            <TimezoneList
               now={this.state.now}
             />
           </ErrorBoundary>
