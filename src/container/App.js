@@ -51,6 +51,16 @@ class App extends React.Component{
     }
   }
 
+  // use subtract button to remove tz
+  onSubButton = (tz) => {
+    const i = this.state.timezoneStrList.indexOf(tz);
+    this.setState(prevState => {
+      let newTzList = prevState.timezoneStrList.slice();
+      newTzList.splice(i, 1);
+      return {timezoneStrList: newTzList};
+    })
+  }
+
 // compare input value with [["Africa", "Abidjan"], ...], and refresh our auto complete options
   compareCity = (tzArr, inputValue) => {
     for(let i in inputValue){
@@ -110,6 +120,7 @@ class App extends React.Component{
             <TimezoneList
               now={this.state.now}
               timezoneStrList={this.state.timezoneStrList}
+              onSubButton={this.onSubButton}
             />
           </ErrorBoundary>
         </div>

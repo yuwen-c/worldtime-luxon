@@ -2,7 +2,7 @@ import React from 'react';
 import { DateTime } from 'luxon'
 import SubButton from '../component/SubButton';
 
-const Timezone = ({tz}) => {
+const Timezone = ({tz, onSubButton}) => {
     // const tzData = DateTime.local().setZone(tz);
     const tzDataStr = DateTime.local().setZone(tz).setLocale('en-us').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
     const tzDataStrHuge = DateTime.local().setZone(tz).setLocale('en-us').toLocaleString(DateTime.DATETIME_HUGE);
@@ -13,7 +13,10 @@ const Timezone = ({tz}) => {
             <div className="dib" id="zoneName">
                 {subZoneName}
             </div>
-            <SubButton className=""/>
+            <SubButton
+                tz={tz}
+                onSubButton={onSubButton}
+            />
             <div>
                 <div className="">
                     <div className="dib w-70 tr pr2">

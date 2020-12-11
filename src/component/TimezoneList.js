@@ -2,7 +2,7 @@ import React from 'react';
 import Timezone from './Timezone';
 import TimezoneNow from './TimezoneNow';
 
-const TimezoneList = ({now, timezoneStrList}) => {
+const TimezoneList = ({now, timezoneStrList, onSubButton}) => {
     return(
         <div>
             <TimezoneNow
@@ -14,6 +14,7 @@ const TimezoneList = ({now, timezoneStrList}) => {
                         <Timezone
                         key={item}
                         tz={item}
+                        onSubButton={onSubButton}
                         />
                     )
                 })
