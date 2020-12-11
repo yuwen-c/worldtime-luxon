@@ -1,6 +1,6 @@
 import React from 'react';
 import Option from './Option';
-import Button from '../component/Button';
+import PlusButton from './PlusButton';
 
 const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onButtonClick}) => {
     return (
@@ -17,7 +17,7 @@ const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onBut
             placeholder="enter city name"
             value={searchboxValue}
             ></input>
-            <Button
+            <PlusButton
             onButtonClick={onButtonClick}
             />
             </div>

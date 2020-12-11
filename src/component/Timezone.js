@@ -1,15 +1,19 @@
 import React from 'react';
 import { DateTime } from 'luxon'
+import SubButton from '../component/SubButton';
 
 const Timezone = ({tz}) => {
     const tzData = DateTime.local().setZone(tz);
     return (
-        <div>
-            <h1 className="f4 bold center mw5 tc">{tzData.zoneName}</h1>
-            <ul className="list pl0 ml0 center mw5 ba b--mid-gray br2">
-                <li className="ph3 pv2 tc bb b--mid-gray">{tzData.toLocaleString()}</li>
-                <li className="ph3 pv2 tc">{tzData.toLocaleString(DateTime.TIME_WITH_SECONDS)}</li>
-            </ul>
+        <div className="flex">
+            <div>
+                <h1 className="f4 bold center mw5 tc">{tzData.zoneName}</h1>
+                <ul className="list pl0 ml0 center mw5 ba b--mid-gray br2">
+                    <li className="ph3 pv2 tc bb b--mid-gray">{tzData.toLocaleString()}</li>
+                    <li className="ph3 pv2 tc">{tzData.toLocaleString(DateTime.TIME_WITH_SECONDS)}</li>
+                </ul>
+            </div>
+            <SubButton/>
         </div>
     )
 }
