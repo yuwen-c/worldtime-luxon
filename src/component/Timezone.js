@@ -3,7 +3,8 @@ import { DateTime } from 'luxon'
 import SubButton from '../component/SubButton';
 import UpButton from '../component/UpButton';
 
-const Timezone = ({tz, onSubButton, onUpButton}) => {
+const Timezone = ({tz, onSubButton, onUpButton, index}) => {
+    console.log("tz", tz)
     // const tzData = DateTime.local().setZone(tz);
     const tzDataStr = DateTime.local().setZone(tz).setLocale('en-us').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
     const tzDataStrHuge = DateTime.local().setZone(tz).setLocale('en-us').toLocaleString(DateTime.DATETIME_HUGE);
@@ -35,10 +36,19 @@ const Timezone = ({tz, onSubButton, onUpButton}) => {
                 <div className="f5 gray dib" id="Friday, December 11, 2020">
                     {tzDataStrHuge.substring(0, 25)}
                 </div>
+                {
+                index !== 0 ?
+
                 <UpButton
                 tz={tz}
                 onUpButton={onUpButton} 
                 />
+
+                :
+
+                null
+                }
+                
 
             </div>
         </div>

@@ -16,6 +16,7 @@ const TimezoneList = ({now, timezoneStrList, onSubButton, onUpButton}) => {
                         tz={item}
                         onSubButton={onSubButton}
                         onUpButton={onUpButton}
+                        index={index}
                         />
                     )
                 })

@@ -61,8 +61,8 @@ class App extends React.Component{
     })
   }
 
+  // move city up 1 step
   onUpButton = (tz) => {
-    console.log("up", tz)
     const i = this.state.timezoneStrList.indexOf(tz);
     this.setState(prevState => {
       let newTzList = prevState.timezoneStrList.slice();
