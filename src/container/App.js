@@ -40,7 +40,7 @@ class App extends React.Component{
   }
 
 // use compare result (completeCity) to refresh our timezoneStrList
-  onButtonClick = () => {
+  onPlusButton = () => {
     const { completeCity } = this.state;
     if(completeCity.length !== 0){ // [["Africa", "Tripoli"], ["Antarctica", "Troll"]]
       this.getTimezoneStr(completeCity[0]); // only add the first compare result
@@ -103,12 +103,8 @@ class App extends React.Component{
             onInputChange={this.onInputChange}
             errorMes={errorMes}
             searchboxValue={this.state.searchbox}
-            onButtonClick={this.onButtonClick}
+            onPlusButton={this.onPlusButton}
             />
-            {/* <input
-            type="submit"
-            onClick={this.onButtonClick}
-            ></input> */}
           </ErrorBoundary>
           <ErrorBoundary>
             <TimezoneList

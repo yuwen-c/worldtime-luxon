@@ -2,7 +2,7 @@ import React from 'react';
 import Option from './Option';
 import PlusButton from './PlusButton';
 
-const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onButtonClick}) => {
+const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onPlusButton}) => {
     return (
         <div className="measure pa4 black-80 ">
             <label  className="f4 b db">What time is it in</label><br/>
@@ -18,7 +18,7 @@ const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onBut
             value={searchboxValue}
             ></input>
             <PlusButton
-            onButtonClick={onButtonClick}
+            onPlusButton={onPlusButton}
             />
             </div>
             <br/>

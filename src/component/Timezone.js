@@ -16,7 +16,7 @@ const Timezone = ({tz}) => {
             <SubButton className=""/>
             <div>
                 <div className="">
-                    <div className="dib w-70">
+                    <div className="dib w-70 tr pr2">
                         <span className="f1" id="10:14">
                             {tzDataStr.slice(-11, -6)}
                         </span>
