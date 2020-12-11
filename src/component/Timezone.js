@@ -1,6 +1,7 @@
 import React from 'react';
 import { DateTime } from 'luxon'
 import SubButton from '../component/SubButton';
+import UpButton from '../component/UpButton';
 
 const Timezone = ({tz, onSubButton}) => {
     // const tzData = DateTime.local().setZone(tz);
@@ -31,9 +32,14 @@ const Timezone = ({tz, onSubButton}) => {
                         {tzDataStr.slice(-2)} 
                     </div>                    
                 </div>
-                <div className="f5 gray" id="Friday, December 11, 2020">
+                <div className="f5 gray dib" id="Friday, December 11, 2020">
                     {tzDataStrHuge.substring(0, 25)}
                 </div>
+                <UpButton
+                tz={tz}
+                onSubButton={onSubButton} 
+                />
+
             </div>
         </div>
     )
