@@ -61,6 +61,18 @@ class App extends React.Component{
     })
   }
 
+  onUpButton = (tz) => {
+    console.log("up", tz)
+    const i = this.state.timezoneStrList.indexOf(tz);
+    this.setState(prevState => {
+      let newTzList = prevState.timezoneStrList.slice();
+      const tzTemp = newTzList[i];
+      newTzList[i] = newTzList[i-1];
+      newTzList[i-1] = tzTemp;
+      return({timezoneStrList: newTzList}) 
+    })
+  }
+
 // compare input value with [["Africa", "Abidjan"], ...], and refresh our auto complete options
   compareCity = (tzArr, inputValue) => {
     for(let i in inputValue){
@@ -121,6 +133,7 @@ class App extends React.Component{
               now={this.state.now}
               timezoneStrList={this.state.timezoneStrList}
               onSubButton={this.onSubButton}
+              onUpButton={this.onUpButton}
             />
           </ErrorBoundary>
         </div>
