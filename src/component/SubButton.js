@@ -2,7 +2,7 @@ import React from 'react';
 
 const SubButton = () => {
     return(
-        <div className="w-10 ml3">
+        <div className="w-10 dib fr">
             <svg 
             className="grow"
             fill='none' stroke='#0E1A27' strokeWidth='10' strokeDashoffset='194' strokeDasharray='0' strokeLinecap='round' strokeLinejoin='round' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>

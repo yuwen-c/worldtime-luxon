@@ -16,7 +16,7 @@ const TimezoneNow = ({now}) => {
             </div>
             <div>
                 <div className="">
-                    <div className="dib w-80">
+                    <div className="dib w-70">
                         <span className="f1" id="10:14">
                             {timeStr.slice(-11, -6)}
                         </span>
@@ -28,9 +28,8 @@ const TimezoneNow = ({now}) => {
                         {timeStr.slice(-2)} 
                     </div>                    
                 </div>
-                <div className="f5 gray" id="12/10/2020">
-                    {/* {timeStr.substring(0, 10)} */}
-                    {timeStrHuge.substring(0, 26)}
+                <div className="f5 gray" id="Friday, December 11, 2020">
+                    {timeStrHuge.substring(0, 25)}
                 </div>
             </div>
         </div>
