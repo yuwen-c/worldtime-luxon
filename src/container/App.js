@@ -13,21 +13,21 @@ class App extends React.Component{
       completeCity: [], // auto complete options
       // timezoneData: [], // data from fetch worldtime API
       // localTzStr : Intl.DateTimeFormat().resolvedOptions().timeZone,  // get local time
-      now: DateTime.local(),
-      timezoneStrList: [] // ["America/New_York", "Europe/Madrid"]
+      // now: DateTime.local(), //now.zonename -> Asia/Taipei
+      ///timezoneStrList: [] // ["America/New_York", "Europe/Madrid"]
+      timezoneStrList: [DateTime.local().zoneName, ],
+      local: DateTime.local().zoneName
     }
   }
 
   // when page loading, do fetch function every second 
   componentDidMount(){
-    this.dateID = setInterval(()=> {this.setState({now: DateTime.local()})}, 1000)
-    // this.timerID = setInterval(this.fetchTimezone, 1000);
+    this.dateID = setInterval(()=> {this.setState({local: DateTime.local().zoneName})}, 1000)
   }
 
   // clear interval
   componentWillUnmount(){
     clearInterval(this.dateID);
-    // clearInterval(this.timerID);
   }
 
 // setState of searchbox and do compare
@@ -134,6 +134,7 @@ class App extends React.Component{
               timezoneStrList={this.state.timezoneStrList}
               onSubButton={this.onSubButton}
               onUpButton={this.onUpButton}
+              local={this.state.local}
             />
           </ErrorBoundary>
         </div>

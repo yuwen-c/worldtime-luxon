@@ -40,13 +40,6 @@ export default TimezoneNow;
 
 
 
-// wish list:
-
-// 1. 有國旗。
-// 2. 有國家。
-// OK 3. 秒數做小。->如何拆出秒數？
-// ok 4. 利用灰階做出區隔。
-// ok 5. 格式，上午下午不夠簡潔。
 
 
     //     <div>

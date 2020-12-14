@@ -3,9 +3,7 @@ import { DateTime } from 'luxon'
 import SubButton from '../component/SubButton';
 import UpButton from '../component/UpButton';
 
-const Timezone = ({tz, onSubButton, onUpButton, index}) => {
-    console.log("tz", tz)
-    // const tzData = DateTime.local().setZone(tz);
+const Timezone = ({tz, onSubButton, onUpButton, index, local}) => {
     const tzDataStr = DateTime.local().setZone(tz).setLocale('en-us').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
     const tzDataStrHuge = DateTime.local().setZone(tz).setLocale('en-us').toLocaleString(DateTime.DATETIME_HUGE);
     const zoneName = DateTime.local().setZone(tz).zoneName;
@@ -15,10 +13,15 @@ const Timezone = ({tz, onSubButton, onUpButton, index}) => {
             <div className="dib" id="zoneName">
                 {subZoneName}
             </div>
+            {
+            zoneName === local ? 
+            null
+            :
             <SubButton
                 tz={tz}
                 onSubButton={onSubButton}
             />
+            }
             <div>
                 <div className="">
                     <div className="dib w-70 tr pr2">
@@ -56,14 +59,3 @@ const Timezone = ({tz, onSubButton, onUpButton, index}) => {
 }
 export default Timezone;
 
-// const Timezone = ({timezoneData}) => {
-//     return (
-//         <div>
-//             <h1 className="f4 bold center mw5 tc">{timezoneData.timezone}</h1>
-//             <ul className="list pl0 ml0 center mw5 ba b--mid-gray br2">
-//                 <li className="ph3 pv2 tc bb b--mid-gray">{timezoneData.datetime.slice(0,10)}</li>
-//                 <li className="ph3 pv2 tc">{timezoneData.datetime.slice(11,19)}</li>
-//             </ul>
-//         </div>
-//     )
-// }
