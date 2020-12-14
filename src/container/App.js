@@ -41,7 +41,7 @@ class App extends React.Component{
 
 // use compare result (completeCity) to refresh our timezoneStrList
   onPlusButton = () => {
-    const { completeCity } = this.state;
+    const { completeCity,  } = this.state;
     if(completeCity.length !== 0){ // [["Africa", "Tripoli"], ["Antarctica", "Troll"]]
       this.getTimezoneStr(completeCity[0]); // only add the first compare result
       this.setState({searchbox: ""});
@@ -93,10 +93,12 @@ class App extends React.Component{
 //  convert compare result: ["Africa", "Abidjan"] to "Africa/Abidjan" and setState timezoneStrList
   getTimezoneStr = (tz) => {
     let tzStr = '';
-    tz.forEach(item => tzStr = tzStr + item + "/");
+    tz.forEach(item => tzStr = tzStr + item + "/"); // Africa/Tripoli/
     this.setState(prevState => {
       let newList = prevState.timezoneStrList.slice();
-      newList.push(tzStr.slice(0, -1)); // Africa/Tripoli/ 要去掉"/"
+      if(!this.state.timezoneStrList.includes(tzStr.slice(0, -1))){ // not allow to repeat timezone 
+        newList.push(tzStr.slice(0, -1)); // get ride of the latest "/"
+      }
       return {timezoneStrList: newList}
     })
   }  
