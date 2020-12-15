@@ -29,7 +29,7 @@ const TimezoneNow = ({now}) => {
                     </div>                    
                 </div>
                 <div className="f5 gray" id="Friday, December 11, 2020">
-                    {timeStrHuge.substring(0, 25)}
+                    {timeStrHuge.slice(0, timeStrHuge.lastIndexOf(","))}
                 </div>
             </div>
         </div>

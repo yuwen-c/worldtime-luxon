@@ -7,9 +7,14 @@ const slashTimezone = Alltimezone.filter(item => {
     return item.includes("/")
 })
 
+// get ride of timezones with "GMT+1"
+const filtered = slashTimezone.filter(item => {
+    return !item.includes("GMT") 
+})
+
 // turn to two dimensions array: "Africa/Abidjan" => "Africa", "Abidjan"
 //  [["Africa", "Abidjan"], ["Africa", "Accra"], ...]
-export const splitedTimezone = slashTimezone.map(item => {
+export const splitedTimezone = filtered.map(item => {
     return item.split("/")
 })
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 const SubButton = ({onSubButton, tz}) => {
     return(
-        <div className="w-10 dib fr">
+        <div className="w-10 dib fr w2-ns ">
             <svg 
             onClick={() => {onSubButton(tz)}}
             className="grow"

@@ -9,11 +9,12 @@ const Timezone = ({tz, onSubButton, onUpButton, index, local}) => {
     const zoneName = DateTime.local().setZone(tz).zoneName;
     const subZoneName = zoneName.substring(zoneName.indexOf("/")+1);
     return(
-        <div className="center br3 w-90 pv3 ph4 bg-white mt2 ">
-            <div className="dib" id="zoneName">
+        <div className="center br3 w-90 pv3 ph4 bg-white mt2 "> {/*卡片*/}
+            <div className="dib f3 f2-ns" id="zoneName"> {/*地名*/}
                 {subZoneName}
             </div>
-            {
+            {/*刪除按鈕*/}
+            {                                                   
             zoneName === local ? 
             null
             :
@@ -22,38 +23,32 @@ const Timezone = ({tz, onSubButton, onUpButton, index, local}) => {
                 onSubButton={onSubButton}
             />
             }
-            <div>
-                <div className="">
-                    <div className="dib w-70 tr pr2">
-                        <span className="f1" id="10:14">
-                            {tzDataStr.slice(-11, -6)}
-                        </span>
-                        <span className="f2 gray" id=":55">
-                            {tzDataStr.slice(-6, -3)}
-                        </span>
-                    </div>
-                    <div className="f4 dib" id="AM PM">
-                        {tzDataStr.slice(-2)} 
-                    </div>                    
+            <div className="w-40-l  center-l"> {/*分鐘 AM PM*/}
+                <div className="dib w-70 tr pr2">
+                    <span className="f1" id="10:14">
+                        {tzDataStr.slice(-11, -6)}
+                    </span>
+                    <span className="f2 gray" id=":55">
+                        {tzDataStr.slice(-6, -3)}
+                    </span>
                 </div>
-                <div className="f5 gray dib" id="Friday, December 11, 2020">
-                    {tzDataStrHuge.substring(0, 25)}
-                </div>
-                {
-                index !== 0 ?
-
-                <UpButton
+                <div className="f4 dib" id="AM PM"> {/*AM PM*/}
+                    {tzDataStr.slice(-2)} 
+                </div>                    
+            </div>                                                  
+            <div className="f5 f3-ns gray dib " id="Friday, December 11, 2020">{/*日期*/}
+                {tzDataStrHuge.substring(0, 26)}
+                {/* 改抓到第3個逗號之前*********** */}
+            </div>
+            {
+            index !== 0 ?
+            <UpButton
                 tz={tz}
                 onUpButton={onUpButton} 
-                />
-
-                :
-
-                null
-                }
-                
-
-            </div>
+            />
+            :
+            null
+            }
         </div>
     )
 }
