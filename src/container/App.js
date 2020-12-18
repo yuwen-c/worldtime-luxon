@@ -4,6 +4,7 @@ import {splitedTimezone} from '../component/Alltimezone';
 import ErrorBoundary from '../component/ErrorBoundary';
 import { DateTime } from "luxon";
 import TimezoneList from '../component/TimezoneList';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 class App extends React.Component{
   constructor(){
@@ -103,6 +104,16 @@ class App extends React.Component{
     })
   }  
 
+  // an given array, with a known index (startIndex) of element, change to a new position (endIndex)
+  reorder = (array, startIndex, endIndex) => {
+    //?
+    const [dragged] = array[startIndex];
+    return array.splice(endIndex, 0, dragged);
+  }
+
+  onDragEnd = () => {
+    // TO DO
+  }
 
   render(){
 // if has not get any timezone data, show "loading"
@@ -131,13 +142,16 @@ class App extends React.Component{
             />
           </ErrorBoundary>
           <ErrorBoundary>
-            <TimezoneList
-              now={this.state.now}
-              timezoneStrList={this.state.timezoneStrList}
-              onSubButton={this.onSubButton}
-              onUpButton={this.onUpButton}
-              local={this.state.local}
-            />
+            <DragDropContext
+              onDragEnd={this.onDragEnd}>
+              <TimezoneList
+                now={this.state.now}
+                timezoneStrList={this.state.timezoneStrList}
+                onSubButton={this.onSubButton}
+                onUpButton={this.onUpButton}
+                local={this.state.local}
+              />
+            </DragDropContext>
           </ErrorBoundary>
         </div>
       )
