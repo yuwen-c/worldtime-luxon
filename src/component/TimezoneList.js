@@ -4,31 +4,30 @@ import { Droppable } from 'react-beautiful-dnd';
 
 const TimezoneList = ({now, timezoneStrList, onSubButton, onUpButton, local}) => {
     return(
-        <Droppable droppableId="droppableId">
+        <Droppable droppableId="droppable">
         {(provided, snapshot) => {
             return(
                 <div
                 ref={provided.innerRef}
                 {...provided.droppableProps}
                 >
-            {
-                timezoneStrList.map((item, index) => {
-                    return(
-                        <Timezone
-                        key={item}
-                        tz={item}
-                        onSubButton={onSubButton}
-                        onUpButton={onUpButton}
-                        index={index}
-                        local={local}
-                        />
-                    )
-                })
-            }
-        </div>
+                {
+                    timezoneStrList.map((item, index) => {
+                        return(
+                            <Timezone
+                            key={item}
+                            tz={item}
+                            onSubButton={onSubButton}
+                            onUpButton={onUpButton}
+                            index={index}
+                            local={local}
+                            />
+                        )
+                    })
+                }
+                </div>
             )
-        }}
-        
+        }}   
         </Droppable>
     )
 }
