@@ -37,8 +37,7 @@ const Timezone = ({tz, onSubButton, onUpButton, index, local}) => {
                 </div>                    
             </div>                                                  
             <div className="f5 f3-ns gray dib " id="Friday, December 11, 2020">{/*日期*/}
-                {tzDataStrHuge.substring(0, 26)}
-                {/* 改抓到第3個逗號之前*********** */}
+                {tzDataStrHuge.slice(0, tzDataStrHuge.lastIndexOf(","))}
             </div>
             {
             index !== 0 ?
