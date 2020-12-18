@@ -1,13 +1,16 @@
 import React from 'react';
 import Timezone from './Timezone';
-import TimezoneNow from './TimezoneNow';
+import { Droppable } from 'react-beautiful-dnd';
 
 const TimezoneList = ({now, timezoneStrList, onSubButton, onUpButton, local}) => {
     return(
-        <div>
-            {/* <TimezoneNow
-            now={now}
-            /> */}
+        <Droppable droppableId="droppableId">
+        {(provided, snapshot) => {
+            return(
+                <div
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+                >
             {
                 timezoneStrList.map((item, index) => {
                     return(
@@ -23,6 +26,10 @@ const TimezoneList = ({now, timezoneStrList, onSubButton, onUpButton, local}) =>
                 })
             }
         </div>
+            )
+        }}
+        
+        </Droppable>
     )
 }
 
