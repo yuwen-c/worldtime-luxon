@@ -12,10 +12,6 @@ class App extends React.Component{
     this.state = {
       searchbox: '',
       completeCity: [], // auto complete options
-      // timezoneData: [], // data from fetch worldtime API
-      // localTzStr : Intl.DateTimeFormat().resolvedOptions().timeZone,  // get local time
-      // now: DateTime.local(), //now.zonename -> Asia/Taipei
-      ///timezoneStrList: [] // ["America/New_York", "Europe/Madrid"]
       timezoneStrList: [DateTime.local().zoneName, ],
       local: DateTime.local().zoneName
     }
@@ -32,17 +28,16 @@ class App extends React.Component{
   }
 
 // setState of searchbox and do compare
-  onInputChange = (event) => {   
-//inputFunc = (event) => {  //use onChange to detect any changes
-    this.compareCity(splitedTimezone, event.target.value.toLowerCase())
+  onInputChange = (event) => { 
     this.setState({
       searchbox: event.target.value.toLowerCase(),
     }) 
+    this.compareCity(splitedTimezone, event.target.value.toLowerCase())
   }
 
 // use compare result (completeCity) to refresh our timezoneStrList
   onPlusButton = () => {
-    const { completeCity,  } = this.state;
+    const { completeCity  } = this.state;
     if(completeCity.length !== 0){ // [["Africa", "Tripoli"], ["Antarctica", "Troll"]]
       this.getTimezoneStr(completeCity[0]); // only add the first compare result
       this.setState({searchbox: ""});
@@ -113,8 +108,6 @@ class App extends React.Component{
   }
 
   onDragEnd = (result) => {
-    // TO DO
-    console.log("result", result)
     if(!result.destination){ 
       return
     }
@@ -123,28 +116,23 @@ class App extends React.Component{
   }
 
   render(){
+    const {timezoneStrList, completeCity, searchbox} = this.state;
+
 // if has not get any timezone data, show "loading"
-    // if(this.state.timezoneData.length === 0){
-    //   return(<h2 className='tc pa6'>loading...</h2>)
-    // }
-    // else{
-  // if input is invalid, show error message in <p> of searchbox.
-  // condition: w/o compare anything && input is not empty
-      let errorMes;
-      if(this.state.completeCity.length === 0 && this.state.searchbox.length !==0){
-        errorMes = 'invalid timezone'
-      }
-      else{
-        errorMes = '';
-      }
+    if(timezoneStrList.length === 0){
+      return(<h2 className='tc pa6'>loading...</h2>)
+    }
+    else{
+      let errorMes = completeCity.length === 0 && searchbox.length !==0 ? "Invalid timezone." : null;
+
       return(
         <div> 
           <ErrorBoundary>
             <Searchbox 
-            completeCity={this.state.completeCity} 
+            completeCity={completeCity} 
             onInputChange={this.onInputChange}
             errorMes={errorMes}
-            searchboxValue={this.state.searchbox}
+            searchboxValue={searchbox}
             onPlusButton={this.onPlusButton}
             />
           </ErrorBoundary>
@@ -153,7 +141,7 @@ class App extends React.Component{
               onDragEnd={this.onDragEnd}>
               <TimezoneList
                 now={this.state.now}
-                timezoneStrList={this.state.timezoneStrList}
+                timezoneStrList={timezoneStrList}
                 onSubButton={this.onSubButton}
                 onUpButton={this.onUpButton}
                 local={this.state.local}
@@ -164,7 +152,7 @@ class App extends React.Component{
       )
     }
   }
-// }
+}
 
 
 export default App;
