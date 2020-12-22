@@ -9,6 +9,15 @@ const Timezone = ({tz, onSubButton, onUpButton, index, local}) => {
     const tzDataStrHuge = DateTime.local().setZone(tz).setLocale('en-us').toLocaleString(DateTime.DATETIME_HUGE);
     const zoneName = DateTime.local().setZone(tz).zoneName;
     const subZoneName = zoneName.substring(zoneName.indexOf("/")+1);
+//     TypeError: Cannot read property 'substring' of null
+// Timezone
+// src/component/Timezone.js:11
+
+// Warning: Encountered two children with the same key, `A`. 
+// Keys should be unique so that components maintain their identity across updates. 
+// Non-unique keys may cause children to be duplicated and/or omitted — 
+// the behavior is unsupported and could change in a future version.
+
     return(
         <Draggable
         draggableId={tz}
@@ -63,6 +72,7 @@ const Timezone = ({tz, onSubButton, onUpButton, index, local}) => {
                 </div>
             )
         }}
+
         </Draggable>
     )
 }

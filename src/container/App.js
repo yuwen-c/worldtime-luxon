@@ -106,13 +106,20 @@ class App extends React.Component{
 
   // an given array, with a known index (startIndex) of element, change to a new position (endIndex)
   reorder = (array, startIndex, endIndex) => {
-    //?
-    const [dragged] = array[startIndex];
-    return array.splice(endIndex, 0, dragged);
+    let orderedArray = array.slice();
+    const [dragged] = orderedArray.splice(startIndex, 1)
+    orderedArray.splice(endIndex, 0, dragged);
+    return orderedArray;
   }
 
-  onDragEnd = () => {
+  onDragEnd = (result) => {
     // TO DO
+    console.log("result", result)
+    if(!result.destination){ 
+      return
+    }
+    const newOrder = this.reorder(this.state.timezoneStrList, result.source.index, result.destination.index);
+    this.setState({timezoneStrList: newOrder})
   }
 
   render(){

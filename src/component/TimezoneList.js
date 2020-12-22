@@ -22,12 +22,15 @@ const TimezoneList = ({now, timezoneStrList, onSubButton, onUpButton, local}) =>
                             index={index}
                             local={local}
                             />
+                            
                         )
                     })
                 }
+                {provided.placeholder}
                 </div>
             )
         }}   
+        
         </Droppable>
     )
 }
