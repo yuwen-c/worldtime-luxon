@@ -3,6 +3,7 @@ import Option from './Option';
 import PlusButton from './PlusButton';
 
 const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onPlusButton}) => {
+    console.log("searchbox", completeCity)
     return (
         <div className="measure pa4 black-80 ">
             <label  className="f4 b db">What time is it in</label><br/>
@@ -25,6 +26,9 @@ const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onPlu
             <small id="name-desc" 
             className="f5 black-60 db mb2">{errorMes}</small>
             <datalist id='cityDatalist' >
+            {/* chrome works just as I think. 
+            safari mixes the datalist original attribute,
+            in the first keydown, compares all options, not just the capital one. */}
             {
                 completeCity.length !== 0?
                 // show timezones in the autocomplete component 
