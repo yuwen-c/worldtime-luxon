@@ -1,5 +1,5 @@
 import React from 'react';
-import Option from './Option';
+import DataOption from './DataOption';
 import PlusButton from './PlusButton';
 
 const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onPlusButton}) => {
@@ -27,11 +27,11 @@ const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onPlu
             <datalist id='cityDatalist' >
             {
                 completeCity.length !== 0?
-                // map the comparison results so every city can show in the autocomplete component 
+                // show timezone in the autocomplete component 
                 completeCity.map((item, index) => {
-                    return <Option 
-                    key={item}
-                    value={item[item.length-1]}/>
+                    return (<DataOption 
+                    key={index.toString()+item}
+                    value={item[item.length-1]}/>)
                 })
 
                 : 

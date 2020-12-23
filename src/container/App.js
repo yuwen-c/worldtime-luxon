@@ -43,7 +43,7 @@ class App extends React.Component{
       this.setState({searchbox: ""});
     }
     else{
-      console.log("there is no matched city")
+      //console.log("there is no matched city")
     }
   }
 
@@ -78,12 +78,12 @@ class App extends React.Component{
           // only compare with the last city name, don't compare with "Africa"
           return item[item.length-1][i].toLowerCase() === inputValue[i]
         })
-        this.setState({completeCity: tzArr});
       }
       catch(error){
         console.log("error", error);
       }
     }
+    this.setState({completeCity: tzArr})
   }
 
 //  convert compare result: ["Africa", "Abidjan"] to "Africa/Abidjan" and setState timezoneStrList

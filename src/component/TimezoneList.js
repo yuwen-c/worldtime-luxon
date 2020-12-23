@@ -29,7 +29,6 @@ const TimezoneList = ({timezoneStrList, onSubButton, onUpButton, local}) => {
                 </div>
             )
         }}   
-        
         </Droppable>
     )
 }

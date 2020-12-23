@@ -64,7 +64,6 @@ const Timezone = ({tz, onSubButton, onUpButton, index, local}) => {
                 </div>
             )
         }}
-
         </Draggable>
     )
 }
