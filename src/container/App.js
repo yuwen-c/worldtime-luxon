@@ -71,19 +71,25 @@ class App extends React.Component{
 
 // compare input value with [["Africa", "Abidjan"], ...], and refresh our auto complete options
   compareCity = (tzArr, inputValue) => {
-    for(let i in inputValue){
-    // if length of input value > city name => error. => use try catch
-      try{
-        tzArr = tzArr.filter(item => {
-          // only compare with the last city name, don't compare with "Africa"
-          return item[item.length-1][i].toLowerCase() === inputValue[i]
-        })
-      }
-      catch(error){
-        console.log("error", error);
-      }
+    if(inputValue.length !== 0){
+      for(let i in inputValue){
+        // if length of input value > city name => error. => use try catch
+          try{
+            tzArr = tzArr.filter(item => {
+              // only compare with the last city name, don't compare with "Africa"
+              return item[item.length-1][i].toLowerCase() === inputValue[i]
+            })
+          }
+          catch(error){
+            console.log("error", error);
+          }
+        }
+        this.setState({completeCity: tzArr})
     }
-    this.setState({completeCity: tzArr})
+    else{
+      this.setState({completeCity: []})
+    }
+
   }
 
 //  convert compare result: ["Africa", "Abidjan"] to "Africa/Abidjan" and setState timezoneStrList
@@ -98,6 +104,10 @@ class App extends React.Component{
       return {timezoneStrList: newList}
     })
   }  
+
+  onSelectTz = (tz) => {
+    this.setState({searchbox: tz})
+  }
 
   // an given array, with a known index (startIndex) of element, change to a new position (endIndex)
   reorder = (array, startIndex, endIndex) => {
@@ -134,6 +144,7 @@ class App extends React.Component{
             errorMes={errorMes}
             searchboxValue={searchbox}
             onPlusButton={this.onPlusButton}
+            onSelectTz={this.onSelectTz}
             />
           </ErrorBoundary>
           <ErrorBoundary>

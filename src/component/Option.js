@@ -1,10 +1,13 @@
 import React from 'react'
 
 
-const Option = ({value}) => {
-    console.log("option", value)
+const Option = ({item, onSelectTz}) => {
     return(
-        <option value={value}></option>
+        <input 
+        className="pa2 w-90"
+        defaultValue={item}
+        onClick={()=>{onSelectTz(item)}}
+        ></input>
     )
 }
 
