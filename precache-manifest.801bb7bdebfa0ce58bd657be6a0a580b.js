@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b58011f7f2c0e44cafa5dc06e6b68c27",
+    "revision": "3f160140f5b2f059d36875a24e149747",
     "url": "/worldtime-luxon/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/worldtime-luxon/static/css/2.3c03f26f.chunk.css"
   },
   {
-    "revision": "7549b5129f2afb27183c",
+    "revision": "3bebfa51b77ab139d2b9",
     "url": "/worldtime-luxon/static/css/main.2c0f2b34.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/worldtime-luxon/static/js/2.672bbcfe.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7549b5129f2afb27183c",
-    "url": "/worldtime-luxon/static/js/main.ce1ba5ea.chunk.js"
+    "revision": "3bebfa51b77ab139d2b9",
+    "url": "/worldtime-luxon/static/js/main.e583d45d.chunk.js"
   },
   {
     "revision": "95c98e4f897cc1cdfb07",
