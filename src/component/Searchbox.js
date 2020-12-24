@@ -2,12 +2,13 @@ import React from 'react';
 import Option from './Option';
 import PlusButton from './PlusButton';
 
-const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onPlusButton, onSelectTz}) => {
+const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onPlusButton, onSelectTz, onInputBlur, showAutoComplete}) => {
     return (
         <div className="measure pa4 black-80 ">
             <label  className="f4 b db">What time is it in</label><br/>
             <div className="flex">
-                    <div className="relative w-80">
+                    <div className="relative w-80"
+                     >
                         <input 
                             autoComplete="off"
                             onChange={onInputChange}
@@ -18,6 +19,7 @@ const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onPlu
                             aria-describedby="name-desc" 
                             placeholder="enter city name"
                             value={searchboxValue}
+
                         ></input>
                         {
                         completeCity.length !== 0 ?
