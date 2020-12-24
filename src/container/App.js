@@ -14,7 +14,6 @@ class App extends React.Component{
       completeCity: [], // auto complete options
       timezoneStrList: [DateTime.local().zoneName, ],
       local: DateTime.local().zoneName,
-      hasClicked: false
     }
   }
 
@@ -30,7 +29,6 @@ class App extends React.Component{
 
 // setState of searchbox and do compare
   onInputChange = (event) => { 
-    console.log("onInputChange")
     this.setState({
       searchbox: event.target.value.toLowerCase(),
     }) 
@@ -76,7 +74,6 @@ class App extends React.Component{
 
 // compare input value with [["Africa", "Abidjan"], ...], and refresh our auto complete options
   compareCity = (tzArr, inputValue) => {
-    console.log("compare", inputValue)
     if(inputValue.length !== 0){
       for(let i in inputValue){
         // if length of input value > city name => error. => use try catch
@@ -112,18 +109,17 @@ class App extends React.Component{
   }  
 
   onSelectTz = (event) => {
-    console.log("onSelect", event.target.id)
     this.setState({
       searchbox: event.target.id,
-      // completeCity: []
     })
-    // this.onInputChange(event.target.id);
     this.compareCity(splitedTimezone, event.target.id.toLowerCase())
   }
 
+  // if input loses focus, clear completeCity. 
+  // => have to do comparsion again to make plus button works
+  // => have to add a flag to prevent invalid warning
   onInputBlur = () => {
-    console.log("blur");
-    // this.setState({showAutoComplete: false})
+    this.setState({completeCity: []})
   }
 
   // an given array, with a known index (startIndex) of element, change to a new position (endIndex)
@@ -143,14 +139,14 @@ class App extends React.Component{
   }
 
   render(){
-    const {timezoneStrList, completeCity, searchbox, hasClicked} = this.state;
+    const {timezoneStrList, completeCity, searchbox} = this.state;
 
 // if has not get any timezone data, show "loading"
     if(timezoneStrList.length === 0){
       return(<h2 className='tc pa6'>loading...</h2>)
     }
     else{
-      let errorMes = completeCity.length === 0 && searchbox.length !==0 && !hasClicked  ? "Invalid timezone." : null;
+      let errorMes = completeCity.length === 0 && searchbox.length !==0 ? "Invalid timezone." : null;
 
       return(
         <div> 
@@ -162,7 +158,7 @@ class App extends React.Component{
             searchboxValue={searchbox}
             onPlusButton={this.onPlusButton}
             onSelectTz={this.onSelectTz}
-            onInputBlur={this.onInputBlur}
+            // onInputBlur={() => {setTimeout(this.onInputBlur, 50)}}
             />
           </ErrorBoundary>
           <ErrorBoundary>

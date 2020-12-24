@@ -2,7 +2,7 @@ import React from 'react';
 import Option from './Option';
 import PlusButton from './PlusButton';
 
-const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onPlusButton, onSelectTz, onInputBlur, showAutoComplete}) => {
+const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onPlusButton, onSelectTz, onInputBlur}) => {
     return (
         <div className="measure pa4 black-80 ">
             <label  className="f4 b db">What time is it in</label><br/>
@@ -19,7 +19,7 @@ const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onPlu
                             aria-describedby="name-desc" 
                             placeholder="enter city name"
                             value={searchboxValue}
-
+                            onBlur={onInputBlur}
                         ></input>
                         {
                         completeCity.length !== 0 ?
