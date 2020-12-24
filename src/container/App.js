@@ -13,7 +13,8 @@ class App extends React.Component{
       searchbox: '',
       completeCity: [], // auto complete options
       timezoneStrList: [DateTime.local().zoneName, ],
-      local: DateTime.local().zoneName
+      local: DateTime.local().zoneName,
+      hasSelected: false
     }
   }
 
@@ -105,8 +106,12 @@ class App extends React.Component{
     })
   }  
 
-  onSelectTz = (tz) => {
-    this.setState({searchbox: tz})
+  onSelectTz = (event) => {
+    this.setState({
+      searchbox: event.target.id,
+      completeCity: [],
+      hasSelected: true
+    })
   }
 
   // an given array, with a known index (startIndex) of element, change to a new position (endIndex)
@@ -126,14 +131,14 @@ class App extends React.Component{
   }
 
   render(){
-    const {timezoneStrList, completeCity, searchbox} = this.state;
+    const {timezoneStrList, completeCity, searchbox, hasSelected} = this.state;
 
 // if has not get any timezone data, show "loading"
     if(timezoneStrList.length === 0){
       return(<h2 className='tc pa6'>loading...</h2>)
     }
     else{
-      let errorMes = completeCity.length === 0 && searchbox.length !==0 ? "Invalid timezone." : null;
+      let errorMes = completeCity.length === 0 && searchbox.length !==0 && !hasSelected ? "Invalid timezone." : null;
 
       return(
         <div> 
