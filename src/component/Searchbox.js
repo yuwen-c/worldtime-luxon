@@ -19,7 +19,7 @@ const Searchbox = ({onInputChange, completeCity, errorMes, searchboxValue, onPlu
                             aria-describedby="name-desc" 
                             placeholder="enter city name"
                             value={searchboxValue}
-                            onBlur={onInputBlur}
+                            // onBlur={onInputBlur}
                         ></input>
                         {
                         completeCity.length !== 0 ?
