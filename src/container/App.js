@@ -30,7 +30,7 @@ class App extends React.Component{
 // setState of searchbox and do compare
   onInputChange = (event) => { 
     this.setState({
-      searchbox: event.target.value.toLowerCase(),
+      searchbox: event.target.value,
     }) 
     this.compareCity(splitedTimezone, event.target.value.toLowerCase())
   }
