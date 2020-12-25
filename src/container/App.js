@@ -13,8 +13,7 @@ class App extends React.Component{
       searchbox: '',
       completeCity: [], // auto complete options
       timezoneStrList: [DateTime.local().zoneName, ],
-      local: DateTime.local().zoneName,
-      isHovered: false
+      local: DateTime.local().zoneName
     }
   }
 
@@ -121,16 +120,6 @@ class App extends React.Component{
     this.setState({completeCity: []})
   }
 
-  onHoverTz = (event) => {
-    console.log("onHover")
-    this.setState({isHovered: true})
-  }
-
-  onOutTz = (event) => {
-    console.log("on out");
-    this.setState({isHovered: false})
-  }
-
   // an given array, with a known index (startIndex) of element, change to a new position (endIndex)
   reorder = (array, startIndex, endIndex) => {
     let orderedArray = array.slice();
@@ -178,9 +167,6 @@ class App extends React.Component{
                 onSubButton={this.onSubButton}
                 onUpButton={this.onUpButton}
                 local={local}
-                onHoverTz={this.onHoverTz}
-                onOutTz={this.onOutTz}
-                isHovered={this.state.isHovered}
               />
             </DragDropContext>
           </ErrorBoundary>

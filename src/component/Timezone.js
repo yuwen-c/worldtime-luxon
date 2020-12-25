@@ -4,7 +4,7 @@ import SubButton from '../component/SubButton';
 import UpButton from '../component/UpButton';
 import { Draggable } from 'react-beautiful-dnd';
 
-const Timezone = ({tz, onSubButton, onUpButton, index, local, onHoverTz, onOutTz}) => {
+const Timezone = ({tz, onSubButton, onUpButton, index, local}) => {
     const tzDataStr = DateTime.local().setZone(tz).setLocale('en-us').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
     const tzDataStrHuge = DateTime.local().setZone(tz).setLocale('en-us').toLocaleString(DateTime.DATETIME_HUGE);
     const zoneName = DateTime.local().setZone(tz).zoneName;
@@ -19,8 +19,6 @@ const Timezone = ({tz, onSubButton, onUpButton, index, local, onHoverTz, onOutTz
             return (
                 <div 
                 className={`center br3 w-90 pv3 ph4 mt2 ${snapshot.isDragging ? 'bg-washed-yellow' : 'bg-white'}`}
-                // onMouseOver={onHoverTz}
-                // onMouseOut={onOutTz}
                 ref={provided.innerRef}
                 {...provided.draggableProps}
                 {...provided.dragHandleProps}
