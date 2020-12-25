@@ -5,6 +5,7 @@ import ErrorBoundary from '../component/ErrorBoundary';
 import { DateTime } from "luxon";
 import TimezoneList from '../component/TimezoneList';
 import { DragDropContext } from 'react-beautiful-dnd';
+import Footer from '../component/Footer';
 
 class App extends React.Component{
   constructor(){
@@ -147,7 +148,7 @@ class App extends React.Component{
       let errorMes = completeCity.length === 0 && searchbox.length !==0 ? "Invalid timezone." : null;
 
       return(
-        <div> 
+        <div className="relative vh-100"> 
           <ErrorBoundary>
             <Searchbox 
             completeCity={completeCity} 
@@ -170,6 +171,7 @@ class App extends React.Component{
               />
             </DragDropContext>
           </ErrorBoundary>
+          <Footer/>
         </div>
       )
     }
