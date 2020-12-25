@@ -112,10 +112,11 @@ class App extends React.Component{
     this.compareCity(splitedTimezone, event.target.id.toLowerCase())
   }
 
+  // unused
   // if input loses focus, clear completeCity. 
   // => have to do comparsion again to make plus button works
   // => have to add a flag to prevent invalid warning
-  onInputBlur = () => {
+  onInputBlur = () => {   
     this.setState({completeCity: []})
   }
 
