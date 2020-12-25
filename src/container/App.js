@@ -75,19 +75,15 @@ class App extends React.Component{
 // compare input value with [["Africa", "Abidjan"], ...], and refresh our auto complete options
   compareCity = (tzArr, inputValue) => {
     if(inputValue.length !== 0){
-      for(let i in inputValue){
-        // if length of input value > city name => error. => use try catch
-          try{
-            tzArr = tzArr.filter(item => {
-              // only compare with the last city name, don't compare with "Africa"
-              return item[item.length-1][i].toLowerCase() === inputValue[i]
-            })
+      let inputArr = inputValue.split(''); // change inputValue str -> array
+      inputArr.forEach((item, index) => {
+        tzArr = tzArr.filter((tz) => {
+          if (tz[tz.length-1].length >= inputArr.length){
+            return tz[tz.length-1][index].toLowerCase() === item
           }
-          catch(error){
-            console.log("error", error);
-          }
-        }
-        this.setState({completeCity: tzArr})
+        })
+      })
+      this.setState({completeCity: tzArr})
     }
     else{
       this.setState({completeCity: []})
@@ -109,6 +105,7 @@ class App extends React.Component{
   }  
 
   onSelectTz = (event) => {
+    console.log("select", event.target.id);
     this.setState({
       searchbox: event.target.id,
     })
