@@ -14,6 +14,7 @@ class App extends React.Component{
       completeCity: [], // auto complete options
       timezoneStrList: [DateTime.local().zoneName, ],
       local: DateTime.local().zoneName,
+      isHovered: false
     }
   }
 
@@ -120,6 +121,16 @@ class App extends React.Component{
     this.setState({completeCity: []})
   }
 
+  onHoverTz = (event) => {
+    console.log("onHover")
+    this.setState({isHovered: true})
+  }
+
+  onOutTz = (event) => {
+    console.log("on out");
+    this.setState({isHovered: false})
+  }
+
   // an given array, with a known index (startIndex) of element, change to a new position (endIndex)
   reorder = (array, startIndex, endIndex) => {
     let orderedArray = array.slice();
@@ -137,7 +148,7 @@ class App extends React.Component{
   }
 
   render(){
-    const {timezoneStrList, completeCity, searchbox} = this.state;
+    const {timezoneStrList, completeCity, searchbox, local} = this.state;
 
 // if has not get any timezone data, show "loading"
     if(timezoneStrList.length === 0){
@@ -163,11 +174,13 @@ class App extends React.Component{
             <DragDropContext
               onDragEnd={this.onDragEnd}>
               <TimezoneList
-                now={this.state.now}
                 timezoneStrList={timezoneStrList}
                 onSubButton={this.onSubButton}
                 onUpButton={this.onUpButton}
-                local={this.state.local}
+                local={local}
+                onHoverTz={this.onHoverTz}
+                onOutTz={this.onOutTz}
+                isHovered={this.state.isHovered}
               />
             </DragDropContext>
           </ErrorBoundary>
