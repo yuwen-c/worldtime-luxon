@@ -1,8 +1,6 @@
 import React from 'react';
 import './Footer.css'
 
-//style={{"background-image":"url(http://i.giphy.com/5lF3pQpdquCBy.gif)"}}
-//email, github icon with fontAwesome
 const Footer = () => {
     return(
         <footer  className="tc-l w-100 ">
