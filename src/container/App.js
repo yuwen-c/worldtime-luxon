@@ -148,7 +148,7 @@ class App extends React.Component{
       let errorMes = completeCity.length === 0 && searchbox.length !==0 ? "Invalid timezone." : null;
 
       return(
-        <div className="relative vh-100"> 
+        <div className="flex flex-column vh-100"> 
           <ErrorBoundary>
             <Searchbox 
             completeCity={completeCity} 
