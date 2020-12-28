@@ -7,7 +7,7 @@ const TimezoneList = ({timezoneStrList, onSubButton, onUpButton, local}) => {
         <Droppable droppableId="droppable">
         {(provided, snapshot) => {
             return(
-                <div
+                <div className="pb5"
                 ref={provided.innerRef}
                 {...provided.droppableProps}
                 >
