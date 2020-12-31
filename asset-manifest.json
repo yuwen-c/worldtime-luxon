@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/worldtime-luxon/static/css/main.d17fe4ec.chunk.css",
-    "main.js": "/worldtime-luxon/static/js/main.7d1461dd.chunk.js",
-    "main.js.map": "/worldtime-luxon/static/js/main.7d1461dd.chunk.js.map",
+    "main.js": "/worldtime-luxon/static/js/main.91350fef.chunk.js",
+    "main.js.map": "/worldtime-luxon/static/js/main.91350fef.chunk.js.map",
     "runtime-main.js": "/worldtime-luxon/static/js/runtime-main.eafbcf8a.js",
     "runtime-main.js.map": "/worldtime-luxon/static/js/runtime-main.eafbcf8a.js.map",
     "static/css/2.3c03f26f.chunk.css": "/worldtime-luxon/static/css/2.3c03f26f.chunk.css",
     "static/js/2.8976750d.chunk.js": "/worldtime-luxon/static/js/2.8976750d.chunk.js",
     "static/js/2.8976750d.chunk.js.map": "/worldtime-luxon/static/js/2.8976750d.chunk.js.map",
     "index.html": "/worldtime-luxon/index.html",
-    "precache-manifest.f5773d0aa3a4a06a91f78643c2b1707c.js": "/worldtime-luxon/precache-manifest.f5773d0aa3a4a06a91f78643c2b1707c.js",
+    "precache-manifest.9c857a3e9cc2ddac076361afe40697b2.js": "/worldtime-luxon/precache-manifest.9c857a3e9cc2ddac076361afe40697b2.js",
     "service-worker.js": "/worldtime-luxon/service-worker.js",
     "static/css/2.3c03f26f.chunk.css.map": "/worldtime-luxon/static/css/2.3c03f26f.chunk.css.map",
     "static/css/main.d17fe4ec.chunk.css.map": "/worldtime-luxon/static/css/main.d17fe4ec.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.3c03f26f.chunk.css",
     "static/js/2.8976750d.chunk.js",
     "static/css/main.d17fe4ec.chunk.css",
-    "static/js/main.7d1461dd.chunk.js"
+    "static/js/main.91350fef.chunk.js"
   ]
 }

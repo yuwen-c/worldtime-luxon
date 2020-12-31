@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/worldtime-luxon/precache-manifest.f5773d0aa3a4a06a91f78643c2b1707c.js"
+  "/worldtime-luxon/precache-manifest.9c857a3e9cc2ddac076361afe40697b2.js"
 );
 
 self.addEventListener('message', (event) => {
