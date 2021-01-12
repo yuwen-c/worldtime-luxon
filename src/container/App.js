@@ -106,7 +106,6 @@ class App extends React.Component{
   }  
 
   onSelectTz = (event) => {
-    console.log("select", event.target.id);
     this.setState({
       searchbox: event.target.id,
     })
