@@ -22,7 +22,7 @@
 ✨ Styled with **Tachyons**\
 ✨ **Drag and drop** functionality with react-beautiful-dnd\
 ✨ get world time by **luxon**\
-✨ Front-end deployed to Netlify
+✨ Front-end deployed to **Netlify**
 
 ## How to use
 
