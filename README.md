@@ -42,4 +42,7 @@
 - Seoul timezone is now on your screen.
 - Try "up" and "delete" button in the right up side of each timezone.
 - Try dragging up and down by mouse or touching on mobile.
-
+<h2 align="center">
+  <img src="example/worldtime-luxon_drag1.jpeg" alt="worldtime-luxon dropdown" width="300px" />
+  <br>
+</h2>
