@@ -1,10 +1,10 @@
 # Worldtime
 ### Fint out what time is it in any timezone.
 
-<h2 align="center">
+<div align="center">
   <img src="example/worldtime-luxon_screenshot.png" alt="worldtime-luxon screenshot" width="600px" />
   <br>
-</h2>
+</div>
 
 ## With this App you can...
 
@@ -13,10 +13,10 @@
 - A drop down menu with corresponding cities will show when you're typing.
 
 
-<h2 align="center">
+<div align="center">
   <img src="example/worldtime-luxon_seoul.jpeg" alt="worldtime-luxon dropdown" width="300px" />
   <br>
-</h2>
+</div>
 
 - Put multiply timezones on your screen at one time.
 - Moving up or delete a timezone with clicking "up" button and "x" button.
