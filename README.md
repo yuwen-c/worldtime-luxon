@@ -6,6 +6,9 @@
   <br>
 </div>
 
+## Try it 
+![Worldtime](https://yuwen-worldtime-luxon.netlify.app/)
+
 ## With this App you can...
 
 - Open this App and it'll show your timezone and time.
@@ -36,16 +39,16 @@
 - That's say you're looking for time of Seoul.
 - Type s. e..., select Seoul, send.
 
-<h2 align="center">
+<div align="center">
   <img src="example/worldtime-luxon_seoul.jpeg" alt="worldtime-luxon dropdown" width="300px" />
   <br>
-</h2>
+</div>
 
 - Seoul timezone is now on your screen.
 - Try "up" and "delete" button in the right up side of each timezone.
 - Try dragging up and down by mouse or touching on mobile.
 
-<h2 align="center">
+<div align="center">
   <img src="example/worldtime-luxon_drag1.jpeg" alt="worldtime-luxon dropdown" width="300px" />
   <br>
-</h2>
+</div>
