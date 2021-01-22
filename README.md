@@ -35,13 +35,16 @@
 
 - That's say you're looking for time of Seoul.
 - Type s. e..., select Seoul, send.
-<p align="center">
+
+<h2 align="center">
   <img src="example/worldtime-luxon_seoul.jpeg" alt="worldtime-luxon dropdown" width="300px" />
   <br>
-</p>
+</h2>
+
 - Seoul timezone is now on your screen.
 - Try "up" and "delete" button in the right up side of each timezone.
 - Try dragging up and down by mouse or touching on mobile.
+
 <h2 align="center">
   <img src="example/worldtime-luxon_drag1.jpeg" alt="worldtime-luxon dropdown" width="300px" />
   <br>
