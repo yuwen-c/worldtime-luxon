@@ -1,10 +1,10 @@
 # Worldtime
 ### Fint out what time is it in any timezone.
 
-<div align="center">
+<h2 align="center">
   <img src="example/worldtime-luxon_screenshot.png" alt="worldtime-luxon screenshot" width="600px" />
   <br>
-</div>
+</h2>
 
 ## With this App you can...
 
