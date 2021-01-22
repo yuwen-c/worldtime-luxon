@@ -6,8 +6,6 @@
   <br>
 </div>
 
-## [Try it](https://yuwen-worldtime-luxon.netlify.app/)  👈👈👈
-
 
 ## With this App you can...
 
@@ -25,6 +23,8 @@
 - Moving up or delete a timezone with clicking "up" button and "x" button.
 - Dragging a timezone with mouse or by touching the mobile.
 
+### [Try it](https://yuwen-worldtime-luxon.netlify.app/)  👈👈👈
+
 ## Features
 
 ✨ **Modern UI** for both mobile and desktop\
@@ -34,7 +34,7 @@
 ✨ get world time by **luxon**\
 ✨ Front-end deployed to **Netlify**
 
-## How to use
+## How to use 🔍
 
 - That's say you're looking for time of Seoul.
 - Type s. e..., select Seoul, send.
