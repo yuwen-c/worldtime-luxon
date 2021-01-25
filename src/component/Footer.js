@@ -1,6 +1,8 @@
 import React from 'react';
 import './Footer.css'
 
+// set container to: "flex flex-column vh-100" to put footer at the bottom
+
 const Footer = () => {
     return(
         <footer  className="tc-l w-100 ">
