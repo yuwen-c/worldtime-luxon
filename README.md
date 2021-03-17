@@ -1,5 +1,17 @@
 # Worldtime
-### Fint out what time is it in any timezone. ⏱
+## Fint out what time is it in any timezone. ⏱
+## [see live](yuwen-worldtime-luxon.netlify.app/)
+
+## evolution of this project 🦍  ⏩  👶
+- I had a on-line spanish class, my teacher and I tried to find out a time which works for her (living in germany) and for me(living in Taiwan).
+- Also, I wanted to practice connecting an API, so I made an [original one](https://yuwen-c.github.io/worldtime/)
+- After that, I tried to show multiple timezones on the screen and turned out it had a serious delay on my app due to it's API.
+- I needed an alternative, and indeed there were some: moment.js, luxon.js or even Javascript Date object.
+- Out of curiosity, I studied about time and timezone and found out the meaning of existency of these libraries:
+> get the present time of somewhere is easy, get "a certain past time" of somewhere is not!!
+- 
+
+
 
 <div align="center">
   <img src="example/worldtime-luxon_screenshot.png" alt="worldtime-luxon screenshot" width="600px" />
