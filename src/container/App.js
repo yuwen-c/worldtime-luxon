@@ -75,21 +75,18 @@ class App extends React.Component{
 
 // compare input value with [["Africa", "Abidjan"], ...], and refresh our auto complete options
   compareCity = (tzArr, inputValue) => {
-    if(inputValue.length !== 0){
-      let inputArr = inputValue.split(''); // change inputValue str -> array
-      inputArr.forEach((item, index) => {
-        tzArr = tzArr.filter((tz) => {
-          if (tz[tz.length-1].length >= inputArr.length){
-            return tz[tz.length-1][index].toLowerCase() === item
-          }
-        })
+    if(inputValue.length !==0){
+      let inputLen = inputValue.length;
+      tzArr = tzArr.filter(item => {
+        if(inputLen <= item[item.length-1].length){
+          return item[item.length-1].slice(0, inputLen).toLowerCase() === inputValue
+        }
       })
       this.setState({completeCity: tzArr})
     }
     else{
       this.setState({completeCity: []})
     }
-
   }
 
 //  convert compare result: ["Africa", "Abidjan"] to "Africa/Abidjan" and setState timezoneStrList
