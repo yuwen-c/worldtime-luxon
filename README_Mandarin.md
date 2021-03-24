@@ -1,6 +1,6 @@
 # Worldtime - 世界時區查詢網站 ⏱
-## [來玩玩](yuwen-worldtime-luxon.netlify.app/)
-## 英文版readme?? 要放嗎
+## [實際操作](yuwen-worldtime-luxon.netlify.app/)
+## [readme in English](https://github.com/yuwen-c/worldtime-luxon/blob/master/README.md)
 
 <div align="center">
   <img src="example/worldtime-luxon_screenshot.png" alt="worldtime-luxon screenshot" width="600px" />
@@ -19,7 +19,7 @@
 - 點選時區，按下加號按鈕，即可加入將時區加入畫面中。
 - 可點選時區右下方的向上按鈕＾，改變順序。
 - 也可用拖拉方式調整時區位置。
-- 
+
 <div align="center">
   <img src="example/worldtime-luxon_drag1.jpeg" alt="worldtime-luxon dropdown" width="300px" />
   <br>
@@ -44,11 +44,11 @@
 
 ## 特點
 ✨ 手機、桌機體驗良好的前端網站。\
-✨ 使用**React.js**。\
-✨ 利用[**Luxon**](https://moment.github.io/luxon/)抓各個時區的時間。\
-✨ 利用react-beautiful-dnd完成**Drag and drop**拖曳功能。\
-✨ 網站部署到**Netlify**\
-✨ Css設計使用**Tachyons**
+✨ 使用**React.js**。——語法類似Javascript，利用多個元件架設，元件各自獨立且可重複使用\
+✨ 利用[**Luxon**](https://moment.github.io/luxon/)抓各個時區的時間。——比```moment.js```更好，且持續在維護。\
+✨ 利用react-beautiful-dnd完成**Drag and drop**拖曳功能。——適合這種不是將物件自由拖拉，而是有固定對齊格線的畫面呈現。\
+✨ 網站部署到**Netlify**——適合靜態網站部署，且可與github連動更新\
+✨ Css設計使用**Tachyons**——輕型、好用的css工具。
 
 
 ## 詳細作法
@@ -66,8 +66,8 @@
 - 引入```DateTime```，利用```setLocale('en-us')```設定英文的March, 24, 2021的日期格式，以及用```toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS)```取得精確到秒的時間。
 - 用字串的slice方法取得需要的資訊，顯示在畫面上。
 
-### Drag and drop:
-- 要使用react-beautiful-dnd，要先界定3個範圍及物件：
+### Drag and drop 拖放功能:
+- 要使用```react-beautiful-dnd```，要先界定3個範圍及物件：
 1. 可操作的最大拖曳的範圍，即搜尋列下方的畫面部分。
 2. 可「放下」的範圍，也就是在哪邊放開，是有效的。
 3. 可拖拉的物件。

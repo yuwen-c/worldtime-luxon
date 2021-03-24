@@ -1,6 +1,7 @@
 # Worldtime
 ## Fint out what time is it in any timezone. ⏱
 ## [see live](yuwen-worldtime-luxon.netlify.app/)
+## [readme in Mandarin](https://github.com/yuwen-c/worldtime-luxon/blob/master/README_Mandarin.md)
 
 ## evolution of this project 🐒  ⏩  👶
 - I had a on-line spanish class, my teacher and I tried to find out a time which works for her (living in germany) and for me(living in Taiwan).
