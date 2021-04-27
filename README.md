@@ -120,22 +120,3 @@
 
 
 
-
-
-====
-
-## With this App you can...
-
-- Open this App and it'll show your timezone and time.
-- Find out a specific timezone by entering a city name.
-- A drop down menu with corresponding cities will show when you're typing.
-
-
-<div align="center">
-  <img src="example/worldtime-luxon_seoul.jpeg" alt="worldtime-luxon dropdown" width="300px" />
-  <br>
-</div>
-
-- Put multiply timezones on your screen at one time.
-- Moving up or delete a timezone with clicking "up" button and "x" button.
-- Dragging a timezone with mouse or by touching the mobile.
