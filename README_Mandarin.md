@@ -55,13 +55,33 @@
 
 
 ## 詳細作法
-### 主要function:
-- App class裡面的state分別有：搜尋列的值(string)、符合的建議時區名稱的(array)、要顯示於畫面的時區列表(array)、當地時區(時間)。
-其中當地時間是利用luxon的DateTime.local來抓取。畫面時區列表的array中，預設第一個元素是當地時區。
-- 利用componentDidMount，設setInterval來每間隔一秒，就重設一次當地時區，達到每秒更新時間的目的。用componentWillUnmount將這個setInterval刪除。
-- 當使用者在搜尋列輸入英文字，會重設搜尋列的state，並執行比對，將全世界時區(資料內建在裡面)與搜尋字串比對，並將結果顯示於下拉選單。如果將搜尋字串刪除，或是不再將焦點放在搜尋列上(onBlur)，建議選單會消失。
-- 如果搜尋列有文字，但沒有相符的比對結果，顯示：Invalid timezone
-- 當使用者選定時區，按下加號按鈕，該時區會被加入時區列表的array中，並與當地時間並列於畫面上。要調整時區上下位置，點選「向上」的按鈕，會將該時區在時區列表中往前調一個位置。如果刪除，則會將此時區拿掉。
+
+### 持續更新當地時間
+- 當App開啟時，會自動抓取當地時間，並持續更新：
+
+<div align="center">
+  <img src="example/worldtime_localtime_200percent_20pad.png" alt="get local time" width="400px" />
+  <br>
+</div>
+
+- 以luxon抓取當地時間，設為state。
+- 以```ComponentDidMount```每秒持續更新該時間。
+- 以```ComponentWillUnMount```清除計時器。
+
+### 查詢時間
+- 使用者查詢時間時，state及畫面的改變：
+
+<div align="center">
+  <img src="example/worldtime_search_200percent_20pad.png" alt="search time" width="400px" />
+  <br>
+</div>
+
+- 使用者輸入時區名稱，畫面會顯示符合的建議選項。
+- 選取送出後，該時區時間，及當地時間，會一同出現在畫面上，並即時更新。
+
+
+### 拖曳改變時區順序
+- 要調整時區上下位置，點選「向上」的按鈕，會將該時區在時區列表中往前調一個位置。如果刪除，則會將此時區拿掉。
 - 拖曳功能，是設定「拖拉動作完成時」，會更改時區列表的元素順序。
 
 ### Luxon.js:
