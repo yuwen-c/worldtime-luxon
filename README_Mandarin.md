@@ -1,13 +1,15 @@
 # Worldtime - 世界時區查詢網站 ⏱
-## [實際操作](yuwen-worldtime-luxon.netlify.app/)
-## [readme in English](https://github.com/yuwen-c/worldtime-luxon/blob/master/README.md)
+
+### [readme in English](https://github.com/yuwen-c/worldtime-luxon/blob/master/README.md)
+### [實際操作](yuwen-worldtime-luxon.netlify.app/)
+
 
 <div align="center">
   <img src="example/worldtime-luxon_screenshot.png" alt="worldtime-luxon screenshot" width="600px" />
   <br>
 </div>
 
-## 如何使用
+## 如何使用 🔍
 - 網頁一打開，畫面上會自動出現使用者所在時區及時間。
 - 在搜尋格輸入時區的英文名稱，邊輸入時下方會出現符合的建議選項。
 
@@ -17,7 +19,8 @@
 </div>
 
 - 點選時區，按下加號按鈕，即可加入將時區加入畫面中。
-- 可點選時區右下方的向上按鈕＾，改變順序。
+- 可同時顯示多時區時間。
+- 點選時區右下方的向上按鈕＾，改變順序。
 - 也可用拖拉方式調整時區位置。
 
 <div align="center">
@@ -27,7 +30,7 @@
 
 - 如要刪除，請按下時區右上方的減號按鈕。
 
-## 作品動機及演進
+## 作品動機及演進 🧬
 - 為了跟人在德國的西班牙語老師約時間，要克服兩邊的時差，於是做了查詢時間的網站。
 - 另一方面想練習接API，於是用了: [worldtime API](http://worldtimeapi.org/)
 - 完成了[初步版本](https://yuwen-c.github.io/worldtime/)。
