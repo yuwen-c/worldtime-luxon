@@ -85,6 +85,35 @@
 - After submitting, the timezone and local time will appear together on the screen, and will be updated in real time.
 
 
+### Click button to change order of timezones
+
+<div align="center">
+  <img src="example/worldtime_order_200percent_20pad.png" alt="change order of timezones" width="400px" />
+  <br>
+</div>
+
+- Click "UP" button then this timezone moves up 1 position.
+- Use "X" button to remove the timezone.
+
+### Luxon.js - time library:
+- Get local time with luxon when app is opened.
+- Get the selected timezone and transform to en_US format: March, 24, 2021.
+- Extract information with ```slice``` string method and show on the screen.
+
+### Drag and drop function:
+- Define scopes and objects before using ```react-beautiful-dnd```:
+
+<div align="center">
+  <img src="example/worldtime_dnd_200percent_20pad.png" alt="drag and drop scopes" width="400px" />
+  <br>
+</div>
+
+1. The biggest operation scope, yellow square.
+2. The range that objects can be dropped, blue square.
+3. Objects that can be drag, green square.
+- Operation scoppe in yellow: define how to generate new order. Set state of timezone order after dragging is over.
+- Droppable range in blue: use default props, and set ref on the DOM.
+- Draggable objects in green: assign id and index to every object, set ref to DOM. Use default props. Use snapshot to define special effects during dragging.
 
 ### button:
 - Simple, intuitive button icon with svg.

@@ -80,23 +80,35 @@
 - 選取送出後，該時區時間，及當地時間，會一同出現在畫面上，並即時更新。
 
 
-### 拖曳改變時區順序
-- 要調整時區上下位置，點選「向上」的按鈕，會將該時區在時區列表中往前調一個位置。如果刪除，則會將此時區拿掉。
-- 拖曳功能，是設定「拖拉動作完成時」，會更改時區列表的元素順序。
+### 利用向上按鈕調整時區順序
 
-### Luxon.js:
-- 每個時區的方格裡有：時區名稱、時間(時分秒、上午下午)、星期幾、日期(月日年)
-- 引入```DateTime```，利用```setLocale('en-us')```設定英文的March, 24, 2021的日期格式，以及用```toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS)```取得精確到秒的時間。
+<div align="center">
+  <img src="example/worldtime_order_200percent_20pad.png" alt="change order of timezones" width="400px" />
+  <br>
+</div>
+
+- 要調整時區上下位置，點選「向上」的按鈕，會將該時區在時區列表中往前調一個位置。
+- 如果點選刪除，可將此時區拿掉。
+
+### Luxon.js - 時間函式庫:
+- 利用luxon，在App開啟時，取得當地時間。
+- 取得使用者所選擇的時區時間，並且轉換為英文的March, 24, 2021的日期格式。
 - 用字串的slice方法取得需要的資訊，顯示在畫面上。
 
 ### Drag and drop 拖放功能:
 - 要使用```react-beautiful-dnd```，要先界定3個範圍及物件：
-1. 可操作的最大拖曳的範圍，即搜尋列下方的畫面部分。
-2. 可「放下」的範圍，也就是在哪邊放開，是有效的。
-3. 可拖拉的物件。
-- 最大拖曳範圍：在這邊，要定義「產生新排序」的功能，及拖曳動作結束時，要更新時區列表的state。
-- 可「放下」的範圍：在這邊使用預設的provided導入props，並且在DOM上面指定ref。
-- 可拖拉的物件：每個可拖曳的物件都必須設定id及index，以及在DOM上設定ref，還有用provided導入props。另外也可以用snapshot設定拖拉時的特效。
+
+<div align="center">
+  <img src="example/worldtime_dnd_200percent_20pad.png" alt="drag and drop scopes" width="400px" />
+  <br>
+</div>
+
+1. 可操作的最大拖曳的範圍，黃色範圍。
+2. 可「放下」物件的範圍，藍色部分。
+3. 可拖拉的物件，綠色區塊。
+- 黃色 拖曳範圍：要定義「產生新排序」的功能，且在拖曳結束時，更新時區順序的state。
+- 藍色 可「放下」的範圍：使用預設的provided導入props，並且在DOM上面指定ref。
+- 綠色 可拖拉的物件：每個物件都必須設定id及index，以及在DOM上設定ref，還有用provided導入props。另外也可以用snapshot設定拖拉時的特效。
 
 ### button:
 - 利用svg圖檔做出符合直覺的圖示。
