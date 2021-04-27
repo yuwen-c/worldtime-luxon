@@ -1,6 +1,6 @@
 # Worldtime - Find out what time is it in any timezone. ⏱
 
-### [readme in Mandarin](https://github.com/yuwen-c/worldtime-luxon/blob/master/README_Mandarin.md)
+### [中文版README](https://github.com/yuwen-c/worldtime-luxon/blob/master/README_Mandarin.md)
 ### [see live](https://yuwen-worldtime-luxon.netlify.app/)
 
 

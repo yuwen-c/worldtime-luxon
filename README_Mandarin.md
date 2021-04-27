@@ -1,6 +1,6 @@
 # Worldtime - 世界時區查詢網站 ⏱
 
-### [readme in English](https://github.com/yuwen-c/worldtime-luxon/blob/master/README.md)
+### [README in English](https://github.com/yuwen-c/worldtime-luxon/blob/master/README.md)
 ### [實際操作](https://yuwen-worldtime-luxon.netlify.app/)
 
 
